@@ -1,0 +1,7 @@
+vi grafana
+git add .
+git commit -m "Linux commands"
+git status
+git push -u origin main
+git status
+git log
