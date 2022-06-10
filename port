@@ -1,0 +1,1 @@
+Port mapping is used to access container from outside, can't access if not done port mapping
