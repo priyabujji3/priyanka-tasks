@@ -1,0 +1,13 @@
+FROM amazonlinux
+RUN yum update -y
+RUN yum install wget unzip -y
+RUN wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm
+RUN rpm -ivh jdk-8u131-linux-x64.rpm
+WORKDIR /opt/
+RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.64/bin/apache-tomcat-9.0.64-windows-x64.zip
+RUN unzip apache-tomcat-9.0.64-windows-x64.zip
+WORKDIR /opt/apache-tomcat-9.0.64/bin
+RUN chmod 777 startup.sh
+RUN chmod 777 catalina.sh
+EXPOSE 8080
+CMD ["/opt/apache-tomcat-9.0.64/bin/startup.sh", "run"]
