@@ -1,1 +1,33 @@
-To install shoppingcart application in tomcat server
+1. connect to bastion with pem file
+2. connect to app server with private ip
+3. switch to root user
+4. goto tmp folder to install java
+5. to download java(download wget oracle java jdk)8th version
+    rpm file(wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm)
+6. we will get rpm file.
+7. to install(rpm -ivh rpm jdk file)
+8. check whether java installed (java -version or java)
+9. now install the tomcat in opt folder( goto opt folder)in app1
+   ==apache.tomcat
+==tomcat9 version 
+==copy link address and download using wget
+== we will get zip file
+==unzip (unzip zip file)
+==remove zip file(rm -f zip file)
+==rename (mv unzip file required name)
+==goto tomcat folder(cd tomcat9)
+==goto bin folder in tomcat9(cd bin)
+==to start tomcat (./startup.sh)
+==check whether tomcat running(ps -ef | grep tomcat)
+10. create load balancer
+==alb
+==create sg(80,anywhere)
+==create tg(8080,/, 200-499)
+==Then allow alb-sg for app1, we will get healthy
+==copy dns name in lb and access the tomcat page
+11. download shoppingcart appln
+==goto tmp folder
+==dowmload shoppingcart.war(wget) https://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/10g/r3/cluster/session_state/files/shoppingcart.zip
+==unzip
+==copy unzip file to webapps in tomcat9(cp shoppingcart.war /opt/tomcat9/webapps/
+==copy dns name and add shoppingcart in url (http://tomcat-alb-1791855252.us-east-1.elb.amazonaws.com/shoppingcart/)to access appn
