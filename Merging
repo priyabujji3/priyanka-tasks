@@ -1,0 +1,7 @@
+
+MERGING OF BRANCHES==========
+git checkout main
+git merge feature(new branch name)
+git merge feature2(another new barnch name)
+check whether the files present in existing branch merged or added to new branches after merging.(git logs)
+After merging push the created new branches to remote repository, so then we can see in github the new branches.
