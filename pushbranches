@@ -1,0 +1,10 @@
+Pushing branches to remote repository (i.e:-to github) 
+git add .
+git commit -m "created feature branch"
+git push(or)git push --set-upstream origin feature
+check in github whether feature branch added or not
+
+git add .
+git commit -m "created feature2 branch"
+git push(or)git push --set-upstream origin feature
+check in github whether feature2 branch added or not
