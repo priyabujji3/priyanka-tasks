@@ -1,0 +1,6 @@
+TO CREATE NEW BRANCH===========
+/c/Users/Venkat/Desktop/static-app-micro
+git branch (To see the existing branches)
+git checkout -b feature (To create new branch and also used to switch to particular branch)
+git checkout -b feature2 (To create another new branch)
+git reflog (To see the branch history)
