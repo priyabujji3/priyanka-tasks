@@ -1,1 +1,2 @@
 Port mapping is used to access container from outside, can't access if not done port mapping
+docker -d -p hostport:containerport image name
