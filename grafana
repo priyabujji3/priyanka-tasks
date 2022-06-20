@@ -1,1 +1,11 @@
 grafana data source
+TO INSTALL NODE EXPORTER,PROMETHEUS AND GRAFANA:::::::
+https://medium.com/devops-dudes/install-prometheus-on-ubuntu-18-04-a51602c6256b
+
+
+Using AWS CloudWatch in Grafana.::::;:
+https://medium.com/@_oleksii_/using-aws-cloudwatch-in-grafana-8294b7a2e7dd
+
+TO CREATE DATA SOURCE IN GRAFANA 
+First create policies,roles and users in IAM dashboard
+Then attach created IAM role to ec2-machine which is required in actions of ec2 machine
