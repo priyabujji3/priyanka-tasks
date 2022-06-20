@@ -1,0 +1,59 @@
+TO RUN JOBS IN JENKINS::;:
+==connect from bastion to jenkins, switch to root user
+==check whether jenkins running
+==yum install git
+==check AWS 
+==insatll maven with zip package in opt folder(downlod the apache maven)https://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.zip
+==unzip(unzip apache-maven-3.8.5-bin.zip)
+==remove zip file( rm -f apache-maven-3.8.5-bin.zip)
+==Rename(mv apache-maven-3.8.5 maven36)
+==goto maven 36(cd maven36)
+==goto bin in maven36(cd bin)
+==create roles in AWS in IAM service
+=====case-ec2
+=====amazon s3 full access(policy)
+=====role name-Ci_server
+==in jenkins switch to bash shell(su - jenkins -s /bin/bash)
+==ls -ltra
+==/var/lib/jenkins/jobs/build-war-maven
+AFTER ALL BUILDING OF WAR FILE 
+========== cd /var/lib/jenkins/workspace/build-war-maven/target
+==create s3 bucket
+==create IAM role and attach to ec2 machine
+==aws s3 ls
+==touch s3uploaddemo
+
+TO UPLOAD WAR FILE FROM EC2 TO S3
+==aws s3 cp s3uploaddemo s3://bucket-war/
+==aws s3 cp s3://bucket-war/s3uploaddemo .
+==check for file in s3 bucket
+FOR MANUAL:::::
+warpath=/var/lib/jenkins/workspace/build-war-maven/target/
+warfile=sparkjava-hello-world-1.0.war
+bucketname=bucket-war
+TO COPY WAR FILE TO S3
+aws s3 cp $warpath/$warfile s3://$bucketname/
+TO DO IN JENKINS AUTOMATICALLY
+==remove manually uploaded war file in s3
+give above 4 commands in the build and save 
+check for the war file in s3
+
+==To rename war file
+connect to bastion and jenkins 
+INn jenkins user go the /target path
+==in jenkins page, before all the old commands attach # and add all the below new commands
+
+/opt/maven36/bin/mvn clean package 
+sleep 5
+warpath=/var/lib/jenkins/workspace/build-war-maven/target/
+warfile=sparkjava-hello-world-1.0.war
+newwarfile=sparkhello-$BUILD_NUMBER.war
+bucketname=bucket-war
+mv $warpath/$warfile $warpath/$newwarfile
+aws s3 cp $warpath/$newwarfile s3://$bucketname/
+
+==check in s3 whether the new file added or not(sparkhello-14.war)
+aws s3 cp s3 ://bucket-war/sparkhello-15.war .
+echo "i am deploying the package to the tomcat"
+scp sparkhello-15.war root@172.31.23.18:/opt/tomcat9/webapps/sparkhello.war
+echo "deployment completed"
