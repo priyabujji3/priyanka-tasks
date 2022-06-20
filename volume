@@ -1,0 +1,19 @@
+PORT MAPPING AND VOLUME MAPPING:::
+connect to ec2 machine
+switch to root user
+mkdir tomcat(priyanka)
+cd tomcat
+vi Dockerfile
+docker build -t tomcat .
+docker images
+mkdir tomcat-logs
+docker volume create tomcat-logs(priyanka)
+docker run -it  c795915cb678 /bin/bash
+cd tomcat-logs/
+docker run -d -p 1010:8080 -v /root/tomcat/tomcat-logs:/usr/local/tomcat/logs  c795915cb678
+docker ps
+
+docker build -t tomcat .
+
+/root/priyanka
+/opt/apache-tomcat-9.0.64/bin
