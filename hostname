@@ -1,0 +1,7 @@
+TO CHANGE HOSTNAME===================
+==vi /etc/hosts(Replace ip with hostname u want)  (orrr)
+==hostnamectl set-hostname new-hostname  (orrr)
+==sudo vi /etc/hostname
+==sudo systemctl reboot (orr)sudo reboot
+To check hostname
+==hostnamectl
