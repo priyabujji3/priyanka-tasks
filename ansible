@@ -1,0 +1,28 @@
+Ansible installation in Linux===========(https://thecodecloud.in/ansible-installation-configuration-amazon-linux-ec2-instance-aws/)
+Install two ec2 machines
+connect to one ec2 machine(master)
+switch to root user
+check whether python there or not(python -V)
+sudo yum install python3
+yum install python3.9
+wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+ls(epel-release-latest-7.noarch.rpm)
+yum install epel-release-latest-7.noarch.rpm
+yum update -y
+yum install ansible -y ( sudo amazon-linux-extras install ansible2)(To install ansible)
+ansible --version(To check whether ansible installed or not)
+(vi /etc/sudoers)To change root privilages
+scroll down and check whether ALL to all there or not
+ (vi /etc/ssh/sshd_config)
+       passwordAuthentication = yes
+       permitrootlogin yes======follow above all process for another machine also
+
+== set passwordless setup for both of them(ssh-keygen)
+In root user==
+cd /etc/ansible/
+ls
+sudo  vi /etc/ansible/hosts(in host file, give a particular name and other machine private ip 
+    EXAMPLE:-[web-servers]
+             another machine private ip
+ansible -m ping web-servers (whatever the given name in host file should be given here)
+RESULT==we will get ping-pong(that is success)
