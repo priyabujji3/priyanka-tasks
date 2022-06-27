@@ -1,0 +1,34 @@
+(https://www.youtube.com/watch?v=BNvzM5PfatU)
+Under /etc/ansible:
+vi myplaybook.yml
+[the below three dots(hyphens---) are mandatory for YAML file or else it wont work]
+
+
+
+---
+- name: install java
+  hosts: webserver
+  gather_facts: false
+  tasks:
+   - name: update repos
+     yum:
+       name: "*"
+       state: latest
+   - name: Installing OpenJDK
+     yum:
+       name: java-1.8.0-openjdk
+   - name: Downloading tomcat
+     get_url:
+       url: "https://downloads.apache.org/tomcat/tomcat-9/v9.0.64/bin/apache-tomcat-9.0.64.tar.gz"
+       dest: /usr/local
+   - name: Extracting tomcat
+     unarchive:
+       src: "/usr/local/apache-tomcat-9.0.64.tar.gz"
+       dest: /usr/local
+       remote_src: yes
+   - name: Renaming tomcat
+     command: mv /usr/local/apache-tomcat-9.0.64 /usr/local/tomcat
+   - name: starting tomcat
+     shell: nohup /usr/local/tomcat/bin/startup.sh
+
+check whether the tomcat running in remote server (ps -ef | grep tomcat)
