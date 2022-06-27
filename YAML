@@ -1,6 +1,7 @@
 (https://www.youtube.com/watch?v=BNvzM5PfatU)
 Under /etc/ansible:
 vi myplaybook.yml
+ansible-playbook -i hosts myplaybook.yml
 [the below three dots(hyphens---) are mandatory for YAML file or else it wont work]
 
 
