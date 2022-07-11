@@ -1,0 +1,38 @@
+TERRAFORM INSTALLATION AND SETUP(EC2)==================
+
+==create one EC2 machine in N.Virginia
+==switch to root user 
+== wget https://releases.hashicorp.com/terraform/0.13.1/terraform_0.13.1_linux_amd64.zip (how to install terraform)
+==ls
+== unzip terraform_0.13.1_linux_amd64.zip (unzip zip file)
+==ls ( u will find terraform)
+== mv terraform /usr/local/bin (move to bin folder)
+==terraform version (to check whether terraform installed or not)
+==mkdir terraform (create a directory)
+==cd terraform/ (to go into folder)
+==touch main.tf (to create a file  **.tf is mandatory**it is an extension)
+==vi main.tf (to create a content in file)
+
+***********************************************************************************
+
+provider "aws" {
+  region       = "ap-south-1"
+  access_key   = "AKIAWXFLWMPM6RFJ6EOL"
+  secret_key   = "hRYJQJMzSEFaGKKTVJM087OV2p6Yy7EYrixoLtTe"
+}
+
+resource "aws_instance" "example" {
+  ami           = "ami-08df646e18b182346"
+  instance_type = "t2.micro"
+   tags = {
+     name = "instance-1"
+     }
+}
+
+************************************************************************************   
+   ************************FLOWER BRACKETS ARE MANDATORY************************************************* 
+==after creation of file.
+==terraform init (to initialise terraform after installation)
+==ls -ltra (u will find *.terraform* file which is hidden file)
+==terraform apply (to apply changes and to create ec2 as given in the main.tf file)
+==atlast check in the AWS CONSOLE, in ec2 dashboard whether the EC2 machine created or not in mumbai--example
