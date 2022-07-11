@@ -12,6 +12,9 @@ TERRAFORM INSTALLATION AND SETUP(EC2)==================
 ==cd terraform/ (to go into folder)
 ==touch main.tf (to create a file  **.tf is mandatory**it is an extension)
 ==vi main.tf (to create a content in file)
+==before preparing the code in main.tf file
+==create an IAM user
+==users--Add users--username--enable access key and password checkbox--attach policies--administrator access--review--create user--download key safely
 
 ***********************************************************************************
 
