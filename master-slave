@@ -1,0 +1,89 @@
+Jenkins Master-Slave Configuration
+===================================
+
+1. Create two ec2 instances (Amazon Linux)
+
+2. One is named as Master and other one is Slave
+
+3. in Master, Installed Java and Jenkins
+
+Scripts to install java &Jenkins
+----------------------------------------
+
+#!/bin/bash
+#Change the direcoty to /tmp
+cd /tmp
+# download the java
+wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm
+# Install the java
+rpm -ivh jdk-8u131-linux-x64.rpm
+# Create java repo /etc/yum.repos.d
+wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
+# Install Jenkins
+yum install jenkins --nogpgcheck
+# Start Jenkins
+systemctl start jenkins
+systemctl enable jenkins
+
+
+4. In Slave, Installed Only Java
+
+# download the java
+wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm
+# Install the java
+rpm -ivh jdk-8u131-linux-x64.rpm
+
+5. Login to master and do password less setup, from Jenkins bash to slave 
+
+6.  Then you have to access Master Jenkins in google chrome, It will shows jenkins UI
+
+7. In Jenkins dashboard, Manage jenkins 
+ Manage Nodes 			
+New Node
+
+You have to give your slave name like “Jenkins_Slave”
+
+
+
+
+ 
+
+
+
+Click Question mark on right side of Launch Command.
+
+COMMAND:ssh hostname java -jar ~/bin/agent.jar.
+
+Like
+ssh ec2-user@172.31.95.252 java –jar /home/ec2-user/agent.jar
+
+
+ 
+
+In above Picture I have marked on “A copy of agent.jar can be downloaded from here”
+8. You have to copy link address from agent.jar can be downloaded from here.
+
+To download agent.jar file in Jenkins slave. 
+
+CMD:	
+
+wget http://18.212.19.254:8080/jnlpJars/agent.jar
+
+9.  Finally Mange Jenkins  Configuration System  Usage
+
+ 
+
+
+10. Then finally, you have to ready to build your jobs In Slave automatically.
+
+ 
+
+
+
+
+
+THANK YOU ALL
+
+
+
