@@ -1,0 +1,18 @@
+JENKINS:
+==connect to jenkins
+==check whether java running or not
+==switch to root user
+==cd /etc/yum.repos.d/
+==to install jenkins we have to enable the EPEL(download jenkins in amazon linux) (wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo)
+==To enable keyfile ( rpm — import https://pkg.jenkins.io/redhat/jenkins.io.key)
+==yum install jenkins --nogpgcheck
+su -jenkins  -s/bin/bash
+==systemctl start jenkins
+==create load balancer(alb)
+==80,anywhere(sg)
+==8080,/,200-499
+allow jenkins alb-sg to jenkins ec2 machine(8080,jenkins alb-sg)
+check whether healthy or not
+==take dns name and access the unlock jenkins page
+copy cat /var/-- in cmd promot and we will get password                                                    run jobs
+==copy password and paste in jenkins page and unlock 
