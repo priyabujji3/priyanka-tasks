@@ -1,0 +1,26 @@
+TAUGHT BY BROOOOO=============
+
+==[[ANSIBLE]]If we want to run one service(or)application like tomcat in many servers at a time in ansible, we have to give all the remote servers private ips in inventory file(or)host file in cd /etc/ansible, then run the play book and the service will run in all servers.
+==[TOMCAT]tomcat home directory(/opt/tomcat)
+==TO change port number(goto home directory of particular service ex::tomcat and then goto conf and change the port number)
+==If permission error comes(chmod 777 file name)
+==(~==home directory)
+==(/==root directory)
+==To check logs(cd bin,ls -ltr, cd logs,ls -ltra,if nothing comes==no issues or errors)
+==Trouble shoot=== when checking the tomcat page or jrnkins page
+  **We have to check whether URL correct or not
+  **In security groups whether port allowed or not
+  **Whether port is listening or not (netstat command)
+  **Whether the app is running or not(curl - I command)
+  **systemctl status tomcat(or)jenkins
+==Git workflow
+==Jenkins workflow
+==Devops lifecycle
+==Node exporter--public ip of server ex::jenkins:9100
+  Grafana--------public ip of server ex::jenkins:3000
+  Prmotheus------public ip of server ex::jenkins:9090
+==SSL(Secure Socket Layer)
+==FLOW OF PACKETS(URL---local hosts in laptop[/etc/localhosts]---internet---internet service provider---Domain names provider[godaddy]---Route53---Load balancer---Servers[or]EC2 machines---)
+==To change Hostnames{switch to root user}(vi /etc/hostnames/,give hostname by clearing the ip present there
+                      And then reboot the server or EC2 machine and then we will get hostname)(in ec2 da[shboard in act[ions reboot[)(systemctl reboot service)[([){{[[[[[[[[[[[[[[[[[[
+==To run commands from anywhere(In bin[bash_profile])
