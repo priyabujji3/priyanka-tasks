@@ -1,0 +1,17 @@
+media
+lib
+usr
+local
+bin
+opt
+mnt
+sys
+dev
+boot
+var
+srv
+home
+etc
+run
+tmp
+root
