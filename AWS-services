@@ -1,0 +1,9 @@
+COMPUTE-----EC2,lambda
+CONTAINERS----- ECS,ECR,EKS
+STORAGE-------S3,EFS, S3 glacier, AWS backup, EBS
+DATABASE------ RDS, Dynamo DB, Elastic cache, Amazon document DB
+NETWORKING------ VPC, Cloudfront or Edge location, Route53
+MANAGEMENT-------- AWS Autoscaling, Cloud watch, Control tower, Trusted advisor, Amazon promotheus, Grafans, Cloud trail
+SECURITY---- IAM, Firewall manager, Artifact, Inspector
+
+
