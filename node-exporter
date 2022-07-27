@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 =========IMPORTANT LINK FOR INSTALLATION OF ALL THE 3 SERVICES
 https://medium.com/devops-dudes/install-prometheus-on-ubuntu-18-04-a51602c6256b
 
 
+=======
+IMPORTANT LINK FOR INSTALLATION OF ALL THE 3 SERVICES
+https://medium.com/devops-dudes/install-prometheus-on-ubuntu-18-04-a51602c6256b
+
+>>>>>>> 1b632003056775d03075e51eaeff7bfd56e322c3
 =======TO INSTALL NODE EXPORTER 
 ==connct to bastion
 ==switch to root user
