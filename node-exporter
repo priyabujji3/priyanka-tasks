@@ -1,9 +1,13 @@
+IMPORTANT LINK FOR INSTALLATION OF ALL THE 3 SERVICES
+https://medium.com/devops-dudes/install-prometheus-on-ubuntu-18-04-a51602c6256b
+
 =======TO INSTALL NODE EXPORTER 
 ==connct to bastion
 ==switch to root user
 ==wget https://github.com/prometheus/node_exporter/releases/download/v0.15.2/node_exporter-0.15.2.linux-amd64.tar.gz(To install)
 ==tar -xf node_exporter-0.15.2.linux-amd64.tar.gz(To extract downloaded file)
 ==sudo mv node_exporter-0.15.2.linux-amd64/node_exporter /usr/local/bin(to change name and to move into binfolder)
+==rm -r node_exporter-0.15.2.linux-amd64*
 ==sudo useradd -rs /bin/false node_exporter
 ==sudo vi /etc/systemd/system/node_exporter.service
 ==[Unit]
