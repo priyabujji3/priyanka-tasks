@@ -1,0 +1,37 @@
+eksctl create cluster \
+--name producioncluster \
+--region us-east-1 \
+--with-oidc \
+--ssh-access \
+--ssh-public-key virginia \
+--instance-types=m5.xlarge \
+--managed
+
+
+https://github.com/dugganapalli/eksctlk8
+
+
+
+
+
+After creation of cluster
+==Create Node Group
+==Go to Cluster---to compute--Add node group--Attach IAM Role-- and other things--create
+==after creation of node group--check for the active state(It takes much time to get to active state)
+==And also check for the instances created in EC2 dashboard(no.of instances created depends on the minimum and maximum range which we had given during the creation of node groups in EKS cluster)
+==If we terminate the instances, it automatically creates EC2 machines as it maintains the minimum ec2 range that we had given in the node grp creation)
+
+IN COMMAND LINE INTERFACE(CLI)=====
+== open the master node from where we can connect to worker nodes in EC2 dashboard.
+==Connect to master node(EC2 machine) in git bash.
+==switch to root user
+==check whether kubectl installed or not (kubectl command)
+==check whether AWS CLI installed or not ()
+==check whether eskctl installed or not 
+==kubectl get nodes --watch (To check the status of worker nodes)
+==kubectl get nodes (To check the nodes present)
+==kubectl run nginx --image=nginx (To create pod)
+==kubectl get pods (To get list of pods)
+==kubectl describe pod nginx (To give more information about the pod created)
+==kubectl get pods -o wide (To get additional information)
+==kubectl delete pod nginx (To delete pods
