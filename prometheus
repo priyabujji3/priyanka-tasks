@@ -1,0 +1,58 @@
+INSTALL PROMETHEUS AFTER NODE EXPORTER=========
+ IMPPPPPPPPP Link to download prometheus(https://medium.com/devops-dudes/install-prometheus-on-ubuntu-18-04-a51602c6256b)
+Install prometheus and grafana in bastion server(main server)
+==After insatlling node exporter in all the machines
+==Connect to bastion
+==Switch to root user
+==ls (check for the node exporter)
+==wget https://github.com/prometheus/prometheus/releases/download/v2.1.0/prometheus-2.1.0.linux-amd64.tar.gz
+==tar -xf prometheus-2.1.0.linux-amd64.tar.gz
+==sudo mv prometheus-2.1.0.linux-amd64/prometheus prometheus-2.1.0.linux-amd64/promtool /usr/local/bin
+==sudo mkdir /etc/prometheus /var/lib/prometheus
+==sudo mv prometheus-2.1.0.linux-amd64/consoles prometheus-2.1.0.linux-amd64/console_libraries /etc/prometheus
+==/etc/prometheus/prometheus.yml
+======================================================================
+   global:
+  scrape_interval: 10s
+;
+scrape_configs:
+  - job_name: 'prometheus_metrics'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9090']
+  - job_name: 'node_exporter_metrics'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9100','prometheus-target-1:9100','prometheus-target-2:9100']------change the targets
+
+==============================================================================================(in the targets give the target machines ip's)
+==sudo useradd -rs /bin/false prometheus
+==sudo chown -R prometheus: /etc/prometheus /var/lib/prometheus
+==vi /etc/systemd/system/prometheus.service
+=====================================================================
+[Unit]
+Description=Prometheus
+After=network.target
+
+[Service]
+User=prometheus
+Group=prometheus
+Type=simple
+ExecStart=/usr/local/bin/prometheus \
+    --config.file /etc/prometheus/prometheus.yml \
+    --storage.tsdb.path /var/lib/prometheus/ \
+    --web.console.templates=/etc/prometheus/consoles \
+    --web.console.libraries=/etc/prometheus/console_libraries
+
+[Install]
+WantedBy=multi-user.target
+
+===================================================================
+==sudo systemctl daemon-reload
+==sudo systemctl enable prometheus
+==sudo systemctl start prometheus
+==sudo systemctl status prometheus -----(we have to get active)
+==Allow 9090 port(anywhere) in bastion security group
+==give app server or web server public ip:9090 (example:3.93.216.109:9090)--------- we will get prometheus page
+==Then install grafana and configure with prometheus(https://www.devopsschool.com/blog/install-and-configure-grafana-in-rhel-7/)
+
