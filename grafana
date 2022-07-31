@@ -1,3 +1,19 @@
+AFTER INSTALLATION OF NODE EXPORTER AND PROMETHEUS, WE HAVE TO INSTALL GRAFANA======
+Grafana and prometheus should be insatlled in main ec2 machine(or)bastion
+==cd /opt/
+==wget https://dl.grafana.com/oss/release/grafana-8.1.5.linux-amd64.tar.gz
+==tar -zxvf grafana-8.1.5.linux-amd64.tar.gz
+==cd grafana-8.1.5
+==cd bin
+==nohup ./grafana-server &
+==ps -eaf | grep gra
+After the installation of grafana
+==Allow 3000 port(anywhere) in the security group of bastion
+==Then access the grafana by giving(bastion public ip:3000)we will get grafana page
+
+===============================================================================================================================
+
+
 grafana data source
 TO INSTALL NODE EXPORTER,PROMETHEUS AND GRAFANA:::::::
 https://medium.com/devops-dudes/install-prometheus-on-ubuntu-18-04-a51602c6256b
