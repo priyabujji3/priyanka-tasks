@@ -3,8 +3,8 @@ Docker hub contains images of different types which will be pushed to run contai
 TO CRAETE OWN IMAGE AND PUSH TO DOCKER HUB::::
 Create a new repo in docker hub
 In bastion server(root user)
- docker build -t conta .
- docker build -t priyabujji/conta .
+docker build -t conta .
+docker build -t priyabujji/conta .
 docker login
 docker tag conta:latest priyabujji/conta:latest
 docker push priyabujji/conta:latest
